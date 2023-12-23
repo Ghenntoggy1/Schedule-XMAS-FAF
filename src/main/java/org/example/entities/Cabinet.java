@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Cabinet {
-    int id;
+    String id;
     boolean isLabCab;
     int nrPersons;
 }

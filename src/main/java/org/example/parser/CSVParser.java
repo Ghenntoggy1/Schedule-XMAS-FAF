@@ -2,8 +2,10 @@ package org.example.parser;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import org.example.entities.Cabinet;
 import org.example.entities.Group;
 import org.example.entities.Subject;
+import org.example.entities.Teacher;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -118,49 +120,98 @@ public class CSVParser {
         return null;
     }
 
-    public List<String[]> readCabinetsData() {
+    public List<Cabinet> readCabinetsData() {
         try {
             FileReader filereader = new FileReader(this.cabinetsFilePath);
 
             CSVReader csvReader = new CSVReaderBuilder(filereader)
                     .withSkipLines(1)
                     .build();
-            List<String[]> allData = csvReader.readAll();
+            List<Cabinet> allData = new ArrayList<>();
 
-            for (String[] row : allData) {
-                for (String cell : row) {
-                    System.out.print(cell + "\t");
+            String[] headers = {"id", "is_lab_cab", "nr_persons"};
+
+            List<String[]> rows = csvReader.readAll();
+            for (String[] row : rows) {
+                System.out.println(Arrays.stream(row).toList());
+                Cabinet cabinet = new Cabinet();
+                for (int i = 0; i < headers.length; i++) {
+                    String header = headers[i];
+                    switch (header) {
+                        case "id" -> cabinet.setId(row[i]);
+                        case "is_lab_cab" -> cabinet.setLabCab(Boolean.parseBoolean(row[i]));
+                        case "nr_persons" -> {
+                            try {
+                                cabinet.setNrPersons(Integer.parseInt(row[i]));
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                cabinet.setNrPersons(25);
+                            }
+                        }
+                        default -> {}
+                    }
                 }
-                System.out.println();
+                allData.add(cabinet);
             }
+
             filereader.close();
             return allData;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public List<String[]> readProfessorsData() {
+    public List<Teacher> readProfessorsData() {
         try {
             FileReader filereader = new FileReader(this.professorsFilePath);
 
             CSVReader csvReader = new CSVReaderBuilder(filereader)
                     .withSkipLines(1)
                     .build();
-            List<String[]> allData = csvReader.readAll();
+            List<Teacher> allData = new ArrayList<>();
 
-            for (String[] row : allData) {
-                for (String cell : row) {
-                    System.out.print(cell + "\t");
+            String[] headers = {"id", "name", "subject", "type",
+                    "mon_per_1", "mon_per_2", "mon_per_3", "mon_per_4", "mon_per_5", "mon_per_6", "mon_per_7",
+                    "tue_per_1", "tue_per_2", "tue_per_3", "tue_per_4", "tue_per_5", "tue_per_6", "tue_per_7",
+                    "wed_per_1", "wed_per_2", "wed_per_3", "wed_per_4", "wed_per_5", "wed_per_6", "wed_per_7",
+                    "thu_per_1", "thu_per_2", "thu_per_3", "thu_per_4", "thu_per_5", "thu_per_6", "thu_per_7",
+                    "fri_per_1", "fri_per_2", "fri_per_3", "fri_per_4", "fri_per_5", "fri_per_6", "fri_per_7",
+                    "sat_per_1", "sat_per_2", "sat_per_3", "sat_per_4", "sat_per_5", "sat_per_6", "sat_per_7"};
+
+            List<String[]> rows = csvReader.readAll();
+            for (String[] row : rows) {
+                Teacher teacher = new Teacher();
+                for (int i = 0; i < headers.length; i++) {
+                    String header = headers[i];
+                    switch (header) {
+                        case "id":
+                            teacher.setId(Integer.parseInt(row[i]));
+                            break;
+                        case "name":
+                            teacher.setName(row[i]);
+                            break;
+                        case "subject":
+                            teacher.setSubject(row[i]);
+                            break;
+                        case "type":
+                            teacher.setType(row[i]);
+                            break;
+                        default:
+                            // Assuming the remaining headers are for availability
+                            int dayIndex = i - 4; // Adjust the index based on the offset of "mon_per_1"
+                            int perecheIndex = Integer.parseInt(header.split("_")[2]) - 1;
+                            boolean isAvailable = Integer.parseInt(row[i]) == 1;
+                            teacher.getAvailability()[dayIndex][perecheIndex] = isAvailable;
+                            break;
+                    }
                 }
-                System.out.println();
+                allData.add(teacher);
             }
+
             filereader.close();
             return allData;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

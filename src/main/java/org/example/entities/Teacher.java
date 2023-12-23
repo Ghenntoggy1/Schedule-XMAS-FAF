@@ -12,5 +12,5 @@ public class Teacher {
     String name;
     String subject;
     String type;
-    boolean[][] availability;
+    boolean[][] availability = new boolean[6][7];
 }
