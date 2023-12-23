@@ -41,4 +41,76 @@ public class CSVParser {
         }
         return null;
     }
+
+    public List<String[]> readSubjectsData() {
+        try {
+            FileReader filereader = new FileReader(this.subjectsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String[]> readCabinetsData() {
+        try {
+            FileReader filereader = new FileReader(this.cabinetsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String[]> readProfessorsData() {
+        try {
+            FileReader filereader = new FileReader(this.professorsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
