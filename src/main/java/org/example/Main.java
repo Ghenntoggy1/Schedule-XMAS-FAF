@@ -9,6 +9,6 @@ public class Main {
         CSVParser csvParser = new CSVParser();
 
         List<String[]> groupData = csvParser.readGroupsData();
-
+        List<String[]> subjectData = csvParser.readSubjectsData();
     }
 }

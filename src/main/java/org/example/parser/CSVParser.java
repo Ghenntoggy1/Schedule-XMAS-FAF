@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CSVParser {
     private static final String folderPath
-            = "D:\\Programming\\Projects\\IdeaProjects\\fafXmas-Back\\src\\main\\java\\org\\example\\ExampleData\\";
+            = "D:\\Programming\\Projects\\IdeaProjects\\Hackathons\\Schedule-XMAS-FAF\\src\\main\\java\\org\\example\\ExampleData\\";
     private final String groupsFilePath
             = folderPath + "Groups and Subjects (FAF Hack) - Grupe.csv";
     private final String professorsFilePath
@@ -21,6 +21,78 @@ public class CSVParser {
     public List<String[]> readGroupsData() {
         try {
             FileReader filereader = new FileReader(this.groupsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String[]> readSubjectsData() {
+        try {
+            FileReader filereader = new FileReader(this.subjectsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String[]> readCabinetsData() {
+        try {
+            FileReader filereader = new FileReader(this.cabinetsFilePath);
+
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+
+            for (String[] row : allData) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+            filereader.close();
+            return allData;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String[]> readProfessorsData() {
+        try {
+            FileReader filereader = new FileReader(this.professorsFilePath);
 
             CSVReader csvReader = new CSVReaderBuilder(filereader)
                     .withSkipLines(1)
