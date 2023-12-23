@@ -20,14 +20,14 @@ id,unitate_curs,teorie,practica,lab,TOTAL,anul,semestru
 19,Practica de inițiere,0,0,0,,1,2
 20,Criptografie,30,0,30,,1,2
 21,ALGA (FAF),30,15,0,,1,1
-22,PCAIT (FAF),0,0,0,Proiect 60,1,1
+22,PCAIT (FAF),0,0,0,60,1,1
 23,MD (FAF),30,15,30,,1,1
 24,AM1 (FAF),30,30,0,,1,1
 25,EIA (FAF),30,0,0,,1,1
 26,PSA (FAF),30,15,15,,1,1
 27,PC (FAF),30,30,30,,1,1
 28,L. Engleza (FAF),0,30,0,,1,1
-29,ME (FAF),0,0,0,Proiect 60,1,2
+29,ME (FAF),0,0,0,60,1,2
 30,SA (FAF),30,30,30,,1,2
 31,AM2(FAF),30,30,0,,1,2
 32,MS(FAF),30,15,0,,1,2
@@ -51,7 +51,7 @@ id,unitate_curs,teorie,practica,lab,TOTAL,anul,semestru
 50,Sensori și traductoare,30,0,30,,2,3
 51,Mecanica fină,30,0,15,,2,3
 52,Analiza și proiectarea algoritmilor,30,30,0,,2,3
-53,Implementarea algoritmilor folosind programarea structurală,0,0,0,Proiect 30,2,3
+53,Implementarea algoritmilor folosind programarea structurală,0,0,0,30,2,3
 54,Traductoare și măsurători,30,15,45,,2,3
 55,Fizica corpului solid,45,15,30,,2,3
 56,Optica medicală și echipamente optice,30,0,15,,2,3
@@ -62,7 +62,7 @@ id,unitate_curs,teorie,practica,lab,TOTAL,anul,semestru
 61,Bazele tehnologiei electronice,30,0,30,,2,3
 62,Programarea interactivă,36,0,24,,2,3
 63,BD,36,15,24,,2,3
-64,Practica în producție,0,0,0,Proiect 240,2,3
+64,Practica în producție,0,0,0,240,2,3
 65,Tehnologii ale securității informaționale,30,0,30,,2,4
 66,Rețele de calculatoare,30,0,30,,2,4
 67,Tehnici avansate de programare,30,15,30,,2,4
@@ -85,7 +85,7 @@ id,unitate_curs,teorie,practica,lab,TOTAL,anul,semestru
 84,Teoria sistemelor automate,30,15,30,,2,4
 85,Sisteme de operare,30,0,30,,2,4
 86,Limbaje formale și automate finite,30,30,15,,2,4
-87,Modelarea și realizarea sistemelor utilizând tehnologii Web,0,0,0,Proiect 30,2,4
+87,Modelarea și realizarea sistemelor utilizând tehnologii Web,0,0,0,30,2,4
 88,Cadrul legal al securității informaționale,30,15,0,,2,4
 89,Măsuri electronice,30,0,30,,2,4
 90,Circuite integrate 1,45,15,30,,2,4
@@ -100,14 +100,14 @@ id,unitate_curs,teorie,practica,lab,TOTAL,anul,semestru
 99,Sisteme de comunicare și transmisie de date,30,0,15,,2,4
 100,Proiecarea asistată de calculator a dispozitivelor medicale,30,0,15,,2,4
 101,Biomateriale,30,0,30,,2,4
-102,BDA (FAF),0,0,0,Proiect 30,2,3
+102,BDA (FAF),0,0,0,30,2,3
 103,POO (FAF),30,30,0,,2,3
 104,GC (FAF),30,30,0,,2,3
 105,BD (FAF),30,15,30,,2,3
 106,AMS (FAF),30,15,30,,2,3
 107,DPI (FAF),30,0,0,,2,3
 108,PT (FAF),0,0,0,,2,3
-109,Elaborarea limbajului specific domeniului,0,0,0,Proiect 120,2,4
+109,Elaborarea limbajului specific domeniului,0,0,0,120,2,4
 110,Analiza algoritmilor (FAF),30,0,30,,2,4
 111,Arhitecturi de calculatoare (FAF),30,0,30,,2,4
 112,Tehnologii Multimedia (FAF),30,0,45,,2,4

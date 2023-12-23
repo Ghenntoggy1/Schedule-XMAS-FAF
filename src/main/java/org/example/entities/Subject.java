@@ -16,5 +16,5 @@ public class Subject {
     int lab;
     int total;
     int anul;
-    int semestru;
+    int[] semestru;
 }
