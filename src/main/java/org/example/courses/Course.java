@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.groups.Group;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +24,7 @@ public class Course {
     Integer labNrLessons;
     Integer year;
     Integer semester;
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    private List<Group> groups;
+
 }

@@ -21,5 +21,11 @@ public class Group {
     String name;
     String language;
     int studentCount;
-    List<Course> courses;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "group_course", // Define the join table for many-to-many relation
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses;
 }
