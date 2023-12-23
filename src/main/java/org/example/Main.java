@@ -1,14 +1,13 @@
 package org.example;
 
-import org.example.parser.CSVParser;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
+@SpringBootApplication()
 public class Main {
     public static void main(String[] args) {
-        CSVParser csvParser = new CSVParser();
-
-        List<String[]> groupData = csvParser.readGroupsData();
-        List<String[]> subjectData = csvParser.readSubjectsData();
+    SpringApplication.run(Main.class, args);
     }
 }
