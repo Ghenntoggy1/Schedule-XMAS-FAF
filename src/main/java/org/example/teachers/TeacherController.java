@@ -18,7 +18,7 @@ public class TeacherController {
     @Autowired
     private  TeacherService teacherService;
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<List<Teacher>> getTeachers(){
         return new ResponseEntity<>(teacherService.getTeacher(), HttpStatus.OK);
     }

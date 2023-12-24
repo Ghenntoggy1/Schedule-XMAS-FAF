@@ -11,6 +11,9 @@ import java.util.Map;
 public class ClassService {
     @Autowired
     private ClassRepository classRepository;
+    public void save(Class c){
+        classRepository.save(c);
+    }
     public List<Class> getFilteredClasses(String group, String professor, String classroom) {
         return classRepository.findByGroupAndProfessorAndClassroom(group, professor, classroom);
     }

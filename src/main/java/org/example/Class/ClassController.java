@@ -1,6 +1,7 @@
 package org.example.Class;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -54,8 +55,13 @@ public class ClassController {
         }
         return classDTO;
     }
-    @PatchMapping("/{id}")
+    @GetMapping("/{id}")
     public Map<String, String> updateClass(@RequestBody Class updatedClass) {
         return classService.updateClass(updatedClass);
+    }
+
+    @PatchMapping("/update/id")
+    public void save(@RequestBody Class updatedClass) {
+        classService.save(updatedClass);
     }
 }
