@@ -20,7 +20,7 @@ public class Group {
     int id;
     String name;
     String language;
-    int studentCount;
+    Integer studentCount;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "GroupCourse",

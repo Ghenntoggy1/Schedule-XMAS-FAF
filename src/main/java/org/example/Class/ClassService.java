@@ -45,7 +45,7 @@ public class ClassService {
         // Your logic to check if the new teacher has other lessons at the same day and period
         List<Class> teacherSchedule = classRepository.findByProfessorAndDayOfWeekAndPeriod(
                 updatedClass.getProfessor(),
-                updatedClass.getDay(),
+                updatedClass.getDayOfWeek(),
                 updatedClass.getPeriod());
 
         // Check if the teacher has other lessons at the same day and period
@@ -57,7 +57,7 @@ public class ClassService {
         // Your logic to check if the new classroom is available at the same day and period
         List<Class> classroomSchedule = classRepository.findByClassroomAndDayOfWeekAndPeriod(
                 updatedClass.getClassroom(),
-                updatedClass.getDay(),
+                updatedClass.getDayOfWeek(),
                 updatedClass.getPeriod());
 
         // Check if the classroom is used at the same day and period
@@ -70,7 +70,7 @@ public class ClassService {
         List<Class> groupAndTeacherSchedule = classRepository.findByGroupAndProfessorAndDayOfWeekAndPeriod(
                 updatedClass.getGroup(),
                 updatedClass.getProfessor(),
-                updatedClass.getDay(),
+                updatedClass.getDayOfWeek(),
                 updatedClass.getPeriod());
 
         // Check if the group and teacher have other lessons at the same day and period
