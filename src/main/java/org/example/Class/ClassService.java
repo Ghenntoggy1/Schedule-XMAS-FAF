@@ -12,7 +12,14 @@ public class ClassService {
     @Autowired
     private ClassRepository classRepository;
     public void save(Class c){
-        classRepository.save(c);
+        Class save = classRepository.findById(c.getClassId()).get();
+        save.setClassroom(c.getClassroom());
+        save.setGroup(c.getGroup());
+        save.setDayOfWeek(c.getDayOfWeek());
+        save.setPeriod(c.getPeriod());
+        save.setProfessor(c.getProfessor());
+        save.setCourseName(c.getCourseName());
+        classRepository.save(save);
     }
     public List<Class> getFilteredClasses(String group, String professor, String classroom) {
         return classRepository.findByGroupAndProfessorAndClassroom(group, professor, classroom);
@@ -53,7 +60,7 @@ public class ClassService {
 
         // Check if the teacher has other lessons at the same day and period
         teacherSchedule.removeIf(c -> c.getClassId().equals(updatedClass.getClassId()));
-        return teacherSchedule.isEmpty();
+        return !teacherSchedule.isEmpty();
     }
 
     private boolean validateClassroomAvailability(Class updatedClass) {
@@ -65,7 +72,7 @@ public class ClassService {
 
         // Check if the classroom is used at the same day and period
         classroomSchedule.removeIf(c -> c.getClassId().equals(updatedClass.getClassId()));
-        return classroomSchedule.isEmpty();
+        return !classroomSchedule.isEmpty();
     }
 
     private boolean validateDayAndPeriodAvailability(Class updatedClass) {
@@ -78,6 +85,6 @@ public class ClassService {
 
         // Check if the group and teacher have other lessons at the same day and period
         groupAndTeacherSchedule.removeIf(c -> c.getClassId().equals(updatedClass.getClassId()));
-        return groupAndTeacherSchedule.isEmpty();
+        return !groupAndTeacherSchedule.isEmpty();
     }
 }

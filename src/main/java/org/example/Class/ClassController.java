@@ -55,12 +55,12 @@ public class ClassController {
         }
         return classDTO;
     }
-    @GetMapping("/{id}")
+    @PatchMapping("/{id}")
     public Map<String, String> updateClass(@RequestBody Class updatedClass) {
         return classService.updateClass(updatedClass);
     }
 
-    @PatchMapping("/update/id")
+    @PatchMapping("/update/{id}")
     public void save(@RequestBody Class updatedClass) {
         classService.save(updatedClass);
     }
