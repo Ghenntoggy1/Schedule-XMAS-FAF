@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "group")
+@Table(name = "[Group]")
 public class Group {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,11 +21,10 @@ public class Group {
     String name;
     String language;
     int studentCount;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
-            name = "group_course", // Define the join table for many-to-many relation
+            name = "GroupCourse",
             joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses;
 }

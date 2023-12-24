@@ -5,21 +5,19 @@ import jakarta.persistence.*;
 import org.example.courses.Course;
 
 @Entity
-@Table(name = "group_course")
+@Table(name = "GroupCourse")
 public class GroupCourse {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Integer id;
     @ManyToOne
     @JoinColumn(name = "group_id", referencedColumnName = "id")
-    private Group group_id;
+     Group group_id;
 
     @ManyToOne
     @JoinColumn(name = "course_id", referencedColumnName = "id")
-    private Course course_id;
+     Course course_id;
 
 
 }
